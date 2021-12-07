@@ -1,5 +1,5 @@
 add_rules("mode.release")
-add_requires("catch2") -- see
+add_requires("catch2") -- see https://xmake.io/#/package/remote_package
 
 target("app")
   set_kind("binary")
