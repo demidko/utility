@@ -1,5 +1,7 @@
 add_rules("mode.release")
 
+add_requires("catch2")  -- see https://xmake.io/#/package/remote_package
+
 target("main")
   set_kind("binary") -- see https://xmake.io/#/manual/project_target?id=set-target-kind
   set_languages("c++0") -- see https://xmake.io/#/manual/project_target?id=targetset_languages
@@ -13,7 +15,7 @@ target("test")
   add_files("src/test/*.cpp")
   add_includedirs("src/main")
   add_deps("main")
-  add_packages("catch2") -- see https://xmake.io/#/package/remote_package
+  add_packages("catch2")
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
