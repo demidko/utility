@@ -1,10 +1,20 @@
-add_rules("mode.debug", "mode.release")
+add_rules("mode.release")
+add_requires("catch2") -- see
 
-target("utility")
-    set_kind("binary")
-    add_files("src/*.cpp")
-    set_languages("c++20")
-    set_optimize("fastest")
+target("app")
+  set_kind("binary")
+  set_languages("c++20")
+  set_warnings("all", "error")
+  add_files("src/main/*.cpp")
+
+target("test")
+  set_kind("binary")
+  set_languages("c++20")
+  set_warnings("all", "error")
+  add_files("src/test/*.cpp")
+  add_includedirs("src/main")
+  add_deps("app")
+  add_packages("catch2")
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
@@ -74,4 +84,3 @@ target("utility")
 --
 -- @endcode
 --
-

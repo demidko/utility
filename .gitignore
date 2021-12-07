@@ -1,15 +1,11 @@
 # Xmake cache
 .xmake/
 build/
-
 # MacOS Cache
 .DS_Store
-
 CMakeLists.txt
-
-.idea
-
-cmake-build-debug
-cmake-build-release
+.idea/
+cmake-build-debug/
+cmake-build-release/
 
 
