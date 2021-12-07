@@ -1,6 +1,6 @@
 # Utility
 
-A cross-platform `C++20` command line tool template.
+A cross-platform C++20 command line tool template.
 
 ## Usage
 
