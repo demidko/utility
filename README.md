@@ -34,10 +34,10 @@ docker build . -t app
 After that, we can run the app in the container (if needed):
 
 ```shell
-docker run -v `pwd`:`pwd` -w `pwd` -it --rm -p 80:80 app
+docker run -v `pwd`:`pwd` -w `pwd` -it --rm -p 80:80 app # docker run -it --rm app
 ```
 
-To clean up docker use `docker system prune -fa`
+To clean up Docker use `docker system prune -fa`
 
 ## Development with IDE
 
