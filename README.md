@@ -1,6 +1,6 @@
 # Utility
 
-A cross-platform C++20 command line tool template.
+The cross-platform C++20 command line tool template.
 
 ## Usage
 
@@ -14,13 +14,13 @@ We need [GCC](https://gcc.gnu.org) or [LLVM](https://llvm.org) toolset, and [xma
 ```shell
 xmake # build
 xmake run test # run unit tests (optional)
-xmake install -o release app # the app wil be located at './release'
+xmake install -o release main # the app wil be located at './release'
 ```
 
 After that, we can run the app:
 
 ```shell
-./release/bin/app
+./release/bin/main
 ```
 
 ## Containerization
@@ -41,7 +41,7 @@ To clean up Docker use `docker system prune -fa`
 
 ## Development with IDE
 
-Some IDEs require a project configuration in a specific format.
+Some IDEs require a project configuration in a specific format. You can configure project with other build system:
 
 * CLion:
   ```shell
@@ -56,7 +56,7 @@ Some IDEs require a project configuration in a specific format.
   xmake project -k xcode
   ```
 
-* Everyone else:
+* For someone else see:
   ```shell
   xmake project -h
   ```

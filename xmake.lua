@@ -1,7 +1,7 @@
 add_rules("mode.release")
 add_requires("catch2") -- see https://xmake.io/#/package/remote_package
 
-target("app")
+target("main")
   set_kind("binary")
   set_languages("c++20")
   set_warnings("all", "error")
@@ -13,7 +13,7 @@ target("test")
   set_warnings("all", "error")
   add_files("src/test/*.cpp")
   add_includedirs("src/main")
-  add_deps("app")
+  add_deps("main")
   add_packages("catch2")
 
 --
