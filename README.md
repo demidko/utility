@@ -9,7 +9,8 @@ Make sure you are signed in to your GitHub account, then just
 
 ## Build
 
-We need [GCC](https://gcc.gnu.org) or [LLVM](https://llvm.org) toolset, and [xmake](https://xmake.io) build system:
+We need [GCC](https://gcc.gnu.org) or [LLVM](https://llvm.org) or [Visual Studio](https://visualstudio.microsoft.com/)
+toolset, and [xmake](https://xmake.io) build system:
 
 ```shell
 xmake # build
@@ -41,7 +42,7 @@ To clean up Docker use `docker system prune -fa`
 
 ## Interop with Java
 
-See [JNR project](https://github.com/jnr/jnr-ffi)
+See [JNR project](https://github.com/jnr/jnr-ffi).
 
 ## Development with IDE
 
