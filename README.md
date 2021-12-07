@@ -25,7 +25,7 @@ After that, we can run the app:
 
 ## Containerization
 
-To build image, we need [Docker](https://www.docker.com/) installed:
+To build the image, we need [Docker](https://www.docker.com/) installed:
 
 ```shell
 docker build . -t app
