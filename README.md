@@ -64,11 +64,47 @@ Some IDEs require a project configuration in a specific format. You can configur
 ## Code style & conventions
 
 * Use functional style.
+  ```c++
+  auto x = User("John"); // good, functional
+  
+  User x = User{"John"}; // bad, old style
+  User x = User("John"); // bad, very old style!
+
+  auto listUsers() -> vector<User> {} // good, clean code
+  void listUsers(vector<User> to&) {} // bad, C++03 old style
+  ```
 * Always use const lvalue (const T &)
   or [TriviallyCopyable](https://en.cppreference.com/w/cpp/named_req/TriviallyCopyable) for readonly parameters.
+  ```c++
+  auto readFrom(const Book &book) {} // good, no copy
+  auto readFrom(Book book) {} // bad, copying!
+  
+  auto print(string_view text) {} // good, no copy
+  auto print(string text) {} // bad, copying!
+  ```
 * To initialize resources, we're using [modern parameter passing by value](https://habr.com/ru/post/460955/), rather
   than a constant link.
-* Use rvalue links (T &&) only in move-constructors.
+  ```c++
+  class Example { 
+    private: 
+      data field;
+    public: 
+      Example(data v): field(move(v)) {} // good, no copy
+      Example(const data &v): field(v) {} // bad, copying!
+  };
+  ```
+* Use rvalue links (T &&) only in move constructors.
+  ```c++
+  class Example {
+      <...>
+    public: 
+      Example(Example &&other): data(move(other.data)) {} // good, move resources.
+      Example(AnotherType &&v): field(v) {} // very bad! Use passing-by-value-then-move instead.
+      Example(AntoherType v): field(move(v)) {} // good, no copy
+  };
+  
+  auto readSomeone(Book &&book) {} // bad, use const Book &. No need moving there!
+  ```
 * Only the result of the compilation of `* .cpp` files in the` src/main` folder is included in the release assembly.
 * The `src/main` folder contains the` *.cpp` and `*.h` project files together.
 * The `src/test` folder contains the` *.cpp` and `*.h` project test files together.
