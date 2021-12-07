@@ -66,9 +66,8 @@ Some IDEs require a project configuration in a specific format. You can configur
 * Use functional style.
   ```c++
   auto x = User("John"); // good, functional
-  
-  User x = User{"John"}; // bad, old style
-  User x = User("John"); // bad, very old style!
+  auto x = User{"John"}; // bad, no need '{..}' with functional initialization.
+  User x = User("John"); // bad, old style!
 
   auto listUsers() -> vector<User> {} // good, clean code
   void listUsers(vector<User> to&) {} // bad, C++03 old style
@@ -99,6 +98,7 @@ Some IDEs require a project configuration in a specific format. You can configur
       <...>
     public: 
       Example(Example &&other): data(move(other.data)) {} // good, move resources.
+  
       Example(AnotherType &&v): field(v) {} // very bad! Use passing-by-value-then-move instead.
       Example(AntoherType v): field(move(v)) {} // good, no copy
   };
