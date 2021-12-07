@@ -43,21 +43,35 @@ To clean up docker use `docker system prune -fa`
 
 Some IDEs require a project configuration in a specific format.
 
-* CLion - run `xmake project -k cmake`
-* Visual Studio - run `xmake project -k vs`
-* Xcode - run `xmake project -k xcode`
+* CLion:
+  ```shell
+  xmake project -k cmake
+  ```
+* Visual Studio
+  ```shell
+  xmake project -k vc
+  ```
+* Xcode:
+  ```shell
+  xmake project -k xcode
+  ```
 
-For everyone else see `xmake project -h`
+* Everyone else:
+  ```shell
+  xmake project -h
+  ```
 
 ## Code style & conventions
 
-* In all cases, use constant references (const T &)
-  or [TriviallyCopyable](https://en.cppreference.com/w/cpp/named_req/TriviallyCopyable) for parameters by default.
+* Use functional style.
+* Always use const lvalue (const T &)
+  or [TriviallyCopyable](https://en.cppreference.com/w/cpp/named_req/TriviallyCopyable) for readonly parameters.
 * To initialize resources, we're using [modern parameter passing by value](https://habr.com/ru/post/460955/), rather
   than a constant link.
-* Only the result of the compilation of `* .cpp` files in the` src` folder is included in the release assembly.
-* The `src` folder contains the` *.cpp` and `*.h` project files together.
-* The `test` folder contains the` *.cpp` and `*.h` project test files together.
+* Use rvalue links (T &&) only in move-constructors.
+* Only the result of the compilation of `* .cpp` files in the` src/main` folder is included in the release assembly.
+* The `src/main` folder contains the` *.cpp` and `*.h` project files together.
+* The `src/test` folder contains the` *.cpp` and `*.h` project test files together.
 * Each `*.h` file must define only one entity in the global namespace, whose name must match the file name.
 * The contents of `*.cpp` files not declared in` *.h` file must be protected from `external linkage` from others
   compilation units by adding them to the anonymous namespace or adding the keyword `static`.
