@@ -39,6 +39,10 @@ docker run -v `pwd`:`pwd` -w `pwd` -it --rm -p 80:80 app # docker run -it --rm a
 
 To clean up Docker use `docker system prune -fa`
 
+## Interop with Java
+
+See [JNR project](https://github.com/jnr/jnr-ffi)
+
 ## Development with IDE
 
 Some IDEs require a project configuration in a specific format. You can configure project with other build system:
