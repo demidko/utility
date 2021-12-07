@@ -4,7 +4,7 @@ add_requires("catch2")  -- see https://xmake.io/#/package/remote_package
 
 target("main")
   set_kind("binary") -- see https://xmake.io/#/manual/project_target?id=set-target-kind
-  set_languages("c++0") -- see https://xmake.io/#/manual/project_target?id=targetset_languages
+  set_languages("c++20") -- see https://xmake.io/#/manual/project_target?id=targetset_languages
   set_warnings("all", "error")
   add_files("src/main/*.cpp")
 
