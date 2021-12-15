@@ -7,5 +7,5 @@ RUN /root/.local/bin/xmake -qy --root
 
 FROM debian as backend
 WORKDIR root
-COPY --from=builder /project/build/release ./app
+COPY --from=builder /project/build/bin ./app
 ENTRYPOINT ["/root/app/main"]
