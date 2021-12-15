@@ -23,7 +23,6 @@ target("test")
   add_deps("main")
   add_packages("catch2", "spdlog")
   after_build(function (target)
-    os.cp("$(projectdir)/src/test/resources/*", target:targetdir())
     os.exec(target:targetfile())
   end)
 
