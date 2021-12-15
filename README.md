@@ -19,7 +19,7 @@ xmake
 After that, we can run the release app:
 
 ```shell
-./build/app
+./build/main
 ```
 
 ## Containerization

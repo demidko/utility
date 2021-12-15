@@ -7,7 +7,6 @@ target("main")
   set_languages("c++20") -- see https://xmake.io/#/manual/project_target?id=targetset_languages
   set_warnings("all", "error")
   add_files("src/main/*.cpp")
-  set_filename("app")
   set_targetdir("build")
 
 target("test")
@@ -18,6 +17,7 @@ target("test")
   add_includedirs("src/main")
   add_deps("main")
   add_packages("catch2", "spdlog")
+  set_targetdir("build")
   after_build(function (target) os.exec(target:targetfile()) end)
 
 --
