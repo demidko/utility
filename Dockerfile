@@ -9,4 +9,4 @@ RUN /root/.local/bin/xmake run -qy --root test
 FROM debian as backend
 WORKDIR root
 COPY --from=builder /project/app ./app
-ENTRYPOINT ["./root/app"]
+ENTRYPOINT ["/root/app"]
