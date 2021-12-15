@@ -7,6 +7,8 @@ target("main")
   set_languages("c++20") -- see https://xmake.io/#/manual/project_target?id=targetset_languages
   set_warnings("all", "error")
   add_files("src/main/*.cpp")
+  set_filename("app")
+  set_targetdir(".")
 
 target("test")
   set_kind("binary")

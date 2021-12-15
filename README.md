@@ -15,13 +15,12 @@ toolset, and [xmake](https://xmake.io) build system:
 ```shell
 xmake # build
 xmake run test # run unit tests (optional)
-xmake install -o release main # the app wil be located at './release'
 ```
 
 After that, we can run the app:
 
 ```shell
-./release/bin/main
+./app
 ```
 
 ## Containerization
