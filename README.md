@@ -13,14 +13,13 @@ We need [GCC](https://gcc.gnu.org) or [LLVM](https://llvm.org) or [Visual Studio
 toolset, and [xmake](https://xmake.io) build system:
 
 ```shell
-xmake # build
-xmake run test # run unit tests (optional)
+xmake
 ```
 
-After that, we can run the app:
+After that, we can run the release app:
 
 ```shell
-./app
+./build/app
 ```
 
 ## Containerization

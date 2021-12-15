@@ -1,6 +1,6 @@
 add_rules("mode.release")
 
-add_requires("catch2")  -- see https://xmake.io/#/package/remote_package
+add_requires("catch2", "spdlog")  -- see https://xmake.io/#/package/remote_package
 
 target("main")
   set_kind("binary") -- see https://xmake.io/#/manual/project_target?id=set-target-kind
@@ -8,7 +8,7 @@ target("main")
   set_warnings("all", "error")
   add_files("src/main/*.cpp")
   set_filename("app")
-  set_targetdir(".")
+  set_targetdir("build")
 
 target("test")
   set_kind("binary")
@@ -17,7 +17,10 @@ target("test")
   add_files("src/test/*.cpp")
   add_includedirs("src/main")
   add_deps("main")
-  add_packages("catch2")
+  add_packages("catch2", "spdlog")
+  after_build(function (target)
+    os.exec(target:targetfile())
+  end)
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
