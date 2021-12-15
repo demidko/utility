@@ -18,9 +18,7 @@ target("test")
   add_includedirs("src/main")
   add_deps("main")
   add_packages("catch2", "spdlog")
-  after_build(function (target)
-    os.exec(target:targetfile())
-  end)
+  after_build(function (target) os.exec(target:targetfile()) end)
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
