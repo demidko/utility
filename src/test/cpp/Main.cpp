@@ -4,7 +4,6 @@
 #include <catch2/catch.hpp>
 
 TEST_CASE("Test") {
-  system("ls");
   REQUIRE(2 + 2 == 4);
 }
 
