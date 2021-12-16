@@ -46,7 +46,7 @@ See [JNR project](https://github.com/jnr/jnr-ffi).
 
 Some IDEs require a project configuration in a specific format. You can configure project with other build system:
 
-* CLion:
+* CLion, VS Code:
   ```shell
   xmake project -k cmake
   ```
