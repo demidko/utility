@@ -1,10 +1,18 @@
 add_rules("mode.release")
 
-add_requires("catch2", "spdlog")
+add_requires("catch2", "spdlog", "conan::simdjson/1.0.2")
 
-add_rules("mode.release")
-
-add_requires("catch2", "spdlog")
+target("main")
+  set_kind("binary")
+  set_filename("app")
+  set_languages("c++20")
+  add_packages("spdlog", "conan::simdjson/1.0.2")
+  add_files("src/main/cpp/*.cpp")
+  add_includedirs("src/main/cpp")
+  set_targetdir("$(buildir)/main")
+  after_build(function (target)
+      os.cp("$(projectdir)/src/main/resources/*", target:targetdir())
+  end)
 
 target("test")
   set_kind("binary")
@@ -19,18 +27,6 @@ target("test")
     os.cp("$(projectdir)/src/test/resources/*", target:targetdir())
     os.cp("$(projectdir)/src/main/resources/*", target:targetdir())
     os.exec(target:targetfile())
-  end)
-
-target("main")
-  set_kind("binary")
-  set_filename("app")
-  set_languages("c++20")
-  add_packages("spdlog")
-  add_files("src/main/cpp/*.cpp")
-  add_includedirs("src/main/cpp")
-  set_targetdir("$(buildir)/main")
-  after_build(function (target)
-      os.cp("$(projectdir)/src/main/resources/*", target:targetdir())
   end)
 
 --
