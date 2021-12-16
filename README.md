@@ -64,7 +64,7 @@ Some IDEs require a project configuration in a specific format. You can configur
   xmake project -h
   ```
 
-## Code style & conventions
+## Code style & Conventions
 
 * The entry point must be located in the `./src/main/cpp/Main.cpp` file for correct build script work.
 * Use functional style.
