@@ -19,7 +19,7 @@ xmake
 After that, we can run the release app:
 
 ```shell
-./build/bin/main
+./build/main/app
 ```
 
 ## Containerization
@@ -66,6 +66,7 @@ Some IDEs require a project configuration in a specific format. You can configur
 
 ## Code style & conventions
 
+* The entry point must be located in the `./src/main/cpp/Main.cpp` file for correct build script work.
 * Use functional style.
   ```c++
   auto x = User("John"); // good, functional

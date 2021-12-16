@@ -1,31 +1,37 @@
 add_rules("mode.release")
 
-add_requires("catch2", "spdlog")  -- see https://xmake.io/#/package/remote_package
+add_requires("catch2", "spdlog")
 
-target("main")
-  set_kind("binary") -- see https://xmake.io/#/manual/project_target?id=set-target-kind
-  set_languages("c++20") -- see https://xmake.io/#/manual/project_target?id=targetset_languages
-  set_warnings("all", "error")
-  add_files("src/main/cpp/*.cpp")
-  add_includedirs("src/main/cpp")
-  add_packages("spdlog")
-  set_targetdir("$(buildir)/bin")
-  after_build(function (target)
-    os.cp("$(projectdir)/src/main/resources/*", target:targetdir())
-  end)
+add_rules("mode.release")
+
+add_requires("catch2", "spdlog", " date", "zstd/1.5.0", "conan::simdjson/1.0.2", "conan::threadpool/20140926")
 
 target("test")
   set_kind("binary")
   set_languages("c++20")
   set_warnings("all", "error")
-  add_files("src/test/cpp/*.cpp")
-  add_includedirs("src/main/cpp")
-  add_includedirs("src/test/cpp")
-  add_deps("main")
   add_packages("catch2", "spdlog")
+  set_targetdir("$(buildir)/test")
+  del_files("src/main/cpp/Main.cpp")
+  add_includedirs("src/test/cpp", "src/main/cpp")
+  add_files("src/main/cpp/*.cpp", "src/test/cpp/*.cpp")
   after_build(function (target)
     os.cp("$(projectdir)/src/test/resources/*", target:targetdir())
+    os.cp("$(projectdir)/src/main/resources/*", target:targetdir())
     os.exec(target:targetfile())
+  end)
+
+target("main")
+  set_strip("all")
+  set_kind("binary")
+  set_filename("app")
+  set_languages("c++20")
+  add_packages("spdlog")
+  add_files("src/main/cpp/*.cpp")
+  add_includedirs("src/main/cpp")
+  set_targetdir("$(buildir)/main")
+  after_build(function (target)
+      os.cp("$(projectdir)/src/main/resources/*", target:targetdir())
   end)
 
 --
