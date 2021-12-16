@@ -4,7 +4,7 @@ add_requires("catch2", "spdlog")
 
 add_rules("mode.release")
 
-add_requires("catch2", "spdlog", " date", "zstd/1.5.0", "conan::simdjson/1.0.2", "conan::threadpool/20140926")
+add_requires("catch2", "spdlog")
 
 target("test")
   set_kind("binary")
