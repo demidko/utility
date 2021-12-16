@@ -22,7 +22,6 @@ target("test")
   end)
 
 target("main")
-  set_strip("all")
   set_kind("binary")
   set_filename("app")
   set_languages("c++20")
