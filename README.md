@@ -10,7 +10,7 @@ Make sure you are signed in to your GitHub account, then just
 ## Build
 
 We need [GCC](https://gcc.gnu.org) or [LLVM](https://llvm.org) or [Visual Studio](https://visualstudio.microsoft.com/)
-toolset, and [xmake](https://xmake.io) build system.
+toolchain, and [xmake](https://xmake.io) build system.
 
 ```shell
 xmake
