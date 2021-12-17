@@ -1,15 +1,16 @@
-FROM gcc:10 as builder
+FROM gcc:10 as xmake
+USER root
+RUN curl -fsSL https://xmake.io/shget.text | bash
+
+FROM xmake as builder
 WORKDIR /project
 COPY src ./src
 COPY xmake.lua ./xmake.lua
-RUN apt -qy update && apt -yq upgrade \
-    && apt -qy install python3-pip \
-    && pip3 -q install conan \
-    && curl -fsSL https://xmake.io/shget.text | bash
-RUN /root/.local/bin/xmake -qy --root
+RUN /root/.local/bin/xmake f -y --links=pthread --root
+RUN /root/.local/bin/xmake -y --root
 
 FROM alpine as backend
-WORKDIR root
-RUN apk update --no-cache && apk upgrade --no-cache && apk add --no-cache bash libstdc++ gcompat libc6-compat
+WORKDIR /usr/local/bin/
+RUN apk update --no-cache && apk upgrade --no-cache && apk add --no-cache curl bash libstdc++ libc6-compat
 COPY --from=builder /project/build/main/* ./
-ENTRYPOINT ["/root/app"]
+ENTRYPOINT ["/usr/local/bin/app"]

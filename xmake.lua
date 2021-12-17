@@ -1,15 +1,29 @@
 add_rules("mode.release")
 
-add_requires("catch2", "spdlog", "conan::simdjson/1.0.2")
+add_requires(
+  "catch2",
+  "spdlog",
+  "date",
+  "zstd",
+  "simdjson",
+  "cpr"
+)
 
 target("main")
   set_kind("binary")
   set_filename("app")
   set_languages("c++20")
-  add_packages("spdlog", "conan::simdjson/1.0.2")
+  set_warnings("all", "error")
   add_files("src/main/cpp/*.cpp")
   add_includedirs("src/main/cpp")
   set_targetdir("$(buildir)/main")
+  add_packages(
+    "spdlog",
+    "date",
+    "zstd",
+    "simdjson",
+    "cpr"
+  )
   after_build(function (target)
       os.cp("$(projectdir)/src/main/resources/*", target:targetdir())
   end)
@@ -18,11 +32,18 @@ target("test")
   set_kind("binary")
   set_languages("c++20")
   set_warnings("all", "error")
-  add_packages("catch2", "spdlog")
   set_targetdir("$(buildir)/test")
   del_files("src/main/cpp/Main.cpp")
   add_includedirs("src/test/cpp", "src/main/cpp")
   add_files("src/main/cpp/*.cpp", "src/test/cpp/*.cpp")
+  add_packages(
+    "catch2",
+    "spdlog",
+    "date",
+    "zstd",
+    "simdjson",
+    "cpr"
+  )
   after_build(function (target)
     os.cp("$(projectdir)/src/test/resources/*", target:targetdir())
     os.cp("$(projectdir)/src/main/resources/*", target:targetdir())

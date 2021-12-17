@@ -11,8 +11,6 @@ Make sure you are signed in to your GitHub account, then just
 
 We need [GCC](https://gcc.gnu.org) or [LLVM](https://llvm.org) or [Visual Studio](https://visualstudio.microsoft.com/)
 toolset, and [xmake](https://xmake.io) build system.
-For [some dependencies](https://xmake.io/#/package/remote_package?id=add-conan-dependency-package), you may also need
-the [Conan](https://vcpkg.io) package manager installed.
 
 ```shell
 xmake
