@@ -8,8 +8,6 @@ add_requires(
   "simdjson"
 )
 
-add_requires("cpr", {configs = {CPR_FORCE_USE_SYSTEM_CURL = OFF, CPR_ENABLE_SSL = OFF}})
-
 target("main")
   set_kind("binary")
   set_filename("app")
@@ -22,8 +20,7 @@ target("main")
     "spdlog",
     "date",
     "zstd",
-    "simdjson",
-    "cpr"
+    "simdjson"
   )
   after_build(function (target)
       os.cp("$(projectdir)/src/main/resources/*", target:targetdir())
@@ -42,8 +39,7 @@ target("test")
     "spdlog",
     "date",
     "zstd",
-    "simdjson",
-    "cpr"
+    "simdjson"
   )
   after_build(function (target)
     os.cp("$(projectdir)/src/test/resources/*", target:targetdir())
