@@ -5,9 +5,10 @@ add_requires(
   "spdlog",
   "date",
   "zstd",
-  "simdjson",
-  "cpr"
+  "simdjson"
 )
+
+add_requires("cpr", {configs = {CPR_FORCE_USE_SYSTEM_CURL=off}})
 
 target("main")
   set_kind("binary")
