@@ -1,0 +1,55 @@
+name: xmake CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-linux-app:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up xmake
+      run: curl -fsSL https://xmake.io/shget.text | bash
+    - name: Configure pthread
+      run: xmake f -y --links=pthread
+    - name: Build with xmake
+      run: xmake -y
+    - name: Store artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: linux-app
+        path: build/main/*
+  build-macos-app:
+    runs-on: macos-11
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up xmake
+      run: brew install -y xmake
+    - name: Build with xmake
+      run: xmake -y
+    - name: Store artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: macos-app
+        path: build/main/*
+  build-windows-app:
+    runs-on: windows-2022
+    steps:
+    - uses: actions/checkout@v2
+    - uses: microsoft/setup-msbuild@v1.1
+      with:
+       vs-version: '17'
+    - name: Set up xmake
+      shell: pwsh
+      run: Invoke-Expression (Invoke-Webrequest 'https://xmake.io/psget.text' -UseBasicParsing).Content
+    - name: Build with xmake
+      run: xmake -y
+    - name: Store artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: windows-app
+        path: build/main/*
+      
