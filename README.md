@@ -1,4 +1,4 @@
-# Utility
+# Native Utility
 
 The cross-platform C++20 command line tool template.
 
