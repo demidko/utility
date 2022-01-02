@@ -1,4 +1,4 @@
-name: xmake CI
+name: xmake
 
 on:
   push:
