@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Upgrade curl
-      run: apt -yq update && apt -yq upgrade && apt -yq install curl
+      run: sudo apt -yq update && sudo apt -yq upgrade && sudo apt -yq install curl
     - name: Set up xmake
       run: curl -fsSL https://xmake.io/shget.text | bash
     - name: Configure pthread
