@@ -49,7 +49,7 @@ jobs:
       run: Invoke-Expression (Invoke-Webrequest 'https://xmake.io/psget.text' -UseBasicParsing).Content
     - name: Build with xmake
       shell: pwsh
-      run: ls C:\Users\runneradmin\xmake
+      run: xmake.exe -y
     - name: Store artifacts
       uses: actions/upload-artifact@v2
       with:
