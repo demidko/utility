@@ -9,6 +9,7 @@ Make sure you are signed in to your GitHub account, then just
 
 ## Download
 
+GitHub CI automatically generates versions of the application for different operating systems. See the Actions Tab.
 
 
 ## Build
