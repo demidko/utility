@@ -27,7 +27,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Set up xmake
-      run: brew install -y xmake
+      run: brew install xmake
     - name: Build with xmake
       run: xmake -y
     - name: Store artifacts
