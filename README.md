@@ -7,6 +7,10 @@ The cross-platform C++20 command line tool template.
 Make sure you are signed in to your GitHub account, then just
 [click here](https://github.com/demidko/native-utility/generate) to use template.
 
+## Download
+
+
+
 ## Build
 
 We need [GCC](https://gcc.gnu.org) or [LLVM](https://llvm.org) or [Visual Studio](https://visualstudio.microsoft.com/)
