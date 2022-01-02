@@ -5,7 +5,7 @@ The cross-platform C++20 command line tool template.
 ## Usage
 
 Make sure you are signed in to your GitHub account, then just
-[click here](https://github.com/demidko/utility/generate) to use template.
+[click here](https://github.com/demidko/native-utility/generate) to use template.
 
 ## Build
 
