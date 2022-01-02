@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Upgrade curl
+      run: apt -yq update && apt -yq upgrade && apt -yq install curl
     - name: Set up xmake
       run: curl -fsSL https://xmake.io/shget.text | bash
     - name: Configure pthread
@@ -47,7 +49,7 @@ jobs:
       run: Invoke-Expression (Invoke-Webrequest 'https://xmake.io/psget.text' -UseBasicParsing).Content
     - name: Build with xmake
       shell: pwsh
-      run: echo $PATH
+      run: gci env:* | sort-object name
     - name: Store artifacts
       uses: actions/upload-artifact@v2
       with:
