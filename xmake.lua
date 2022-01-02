@@ -8,7 +8,7 @@ add_requires(
   "simdjson"
 )
 
-add_requires("cpr", {configs = {CPR_FORCE_USE_SYSTEM_CURL=off}})
+add_requires("cpr", {configs = {CPR_FORCE_USE_SYSTEM_CURL=OFF}})
 
 target("main")
   set_kind("binary")
