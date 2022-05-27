@@ -101,6 +101,7 @@ Some IDEs require a project configuration in a specific format. You can configur
       Example(const data &v): field(v) {} // bad, copying!
   };
   ```
+* Use [NRVO](https://habr.com/ru/company/vk/blog/666330/)
 * Use rvalue links (T &&) only in move constructors.
   ```c++
   class Example {
