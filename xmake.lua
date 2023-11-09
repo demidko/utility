@@ -31,7 +31,7 @@ target("test")
   set_languages("c++20")
   set_warnings("all", "error")
   set_targetdir("$(buildir)/test")
-  del_files("src/main/cpp/Main.cpp")
+  remove_files("src/main/cpp/Main.cpp")
   add_includedirs("src/test/cpp", "src/main/cpp")
   add_files("src/main/cpp/*.cpp", "src/test/cpp/*.cpp")
   add_packages(
