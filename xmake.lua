@@ -4,8 +4,7 @@ add_requires(
   "catch2",
   "spdlog",
   "date",
-  "zstd",
-  "simdjson"
+  "zstd"
 )
 
 target("main")
@@ -19,8 +18,7 @@ target("main")
   add_packages(
     "spdlog",
     "date",
-    "zstd",
-    "simdjson"
+    "zstd"
   )
   after_build(function (target)
       os.cp("$(projectdir)/src/main/resources/*", target:targetdir())
@@ -38,8 +36,7 @@ target("test")
     "catch2",
     "spdlog",
     "date",
-    "zstd",
-    "simdjson"
+    "zstd"
   )
   after_build(function (target)
     os.cp("$(projectdir)/src/test/resources/*", target:targetdir())
