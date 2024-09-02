@@ -1,4 +1,5 @@
 add_rules("mode.release")
+add_rules("plugin.compile_commands.autoupdate", {outputdir = ".vscode"})
 
 add_requires(
   "catch2",
@@ -12,7 +13,7 @@ target("main")
   set_filename("app")
   set_languages("c++20")
   set_warnings("all", "error")
-  add_files("src/main/cpp/*.cpp")
+  add_files("src/main/cpp/*.c", "src/main/cpp/*.cpp")
   add_includedirs("src/main/cpp")
   set_targetdir("$(buildir)/main")
   add_packages(
@@ -31,7 +32,7 @@ target("test")
   set_targetdir("$(buildir)/test")
   remove_files("src/main/cpp/Main.cpp")
   add_includedirs("src/test/cpp", "src/main/cpp")
-  add_files("src/main/cpp/*.cpp", "src/test/cpp/*.cpp")
+  add_files("src/main/cpp/*.c", "src/test/cpp/*.c", "src/main/cpp/*.cpp", "src/test/cpp/*.cpp")
   add_packages(
     "catch2",
     "spdlog",
