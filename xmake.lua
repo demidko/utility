@@ -4,8 +4,7 @@ add_rules("plugin.compile_commands.autoupdate", {outputdir = ".vscode"})
 add_requires(
   "catch2",
   "spdlog",
-  "date",
-  "zstd"
+  "date"
 )
 
 target("main")
@@ -18,8 +17,7 @@ target("main")
   set_targetdir("$(buildir)/main")
   add_packages(
     "spdlog",
-    "date",
-    "zstd"
+    "date"
   )
   after_build(function (target)
       os.cp("$(projectdir)/src/main/resources/*", target:targetdir())
@@ -33,11 +31,11 @@ target("test")
   remove_files("src/main/cpp/Main.cpp")
   add_includedirs("src/test/cpp", "src/main/cpp")
   add_files("src/main/cpp/*.c", "src/test/cpp/*.c", "src/main/cpp/*.cpp", "src/test/cpp/*.cpp")
+  add_tests("src/test/cpp/Main.cpp")
   add_packages(
     "catch2",
     "spdlog",
-    "date",
-    "zstd"
+    "date"
   )
   after_build(function (target)
     os.cp("$(projectdir)/src/test/resources/*", target:targetdir())

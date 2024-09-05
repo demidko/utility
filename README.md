@@ -11,7 +11,6 @@ Make sure you are signed in to your GitHub account, then just
 
 GitHub CI automatically generates versions of the application for different operating systems. See the Actions Tab.
 
-
 ## Build
 
 We need [GCC](https://gcc.gnu.org) or [LLVM](https://llvm.org) or [Visual Studio](https://visualstudio.microsoft.com/)
