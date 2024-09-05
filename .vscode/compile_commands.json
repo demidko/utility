@@ -1,0 +1,11 @@
+[
+{
+  "directory": "/workspaces/utility",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-Wall", "-Werror", "-O3", "-std=c++2a", "-Isrc/main/cpp", "-I", "/home/codespace/.xmake/packages/s/spdlog/v1.14.1/469f312ffeff47d9aa249e3ed8e400dc/include", "-I", "/home/codespace/.xmake/packages/d/date/2024.05.14/51ba21c0bca24f1aa0762d87ae6fe71a/include", "-I", "/home/codespace/.xmake/packages/z/zstd/v1.5.6/80e2da1ba1084d6a873eadb0acb6c455/include", "-DNDEBUG", "-o", "build/.objs/main/linux/x86_64/release/src/main/cpp/Main.cpp.o", "src/main/cpp/Main.cpp"],
+  "file": "src/main/cpp/Main.cpp"
+},
+{
+  "directory": "/workspaces/utility",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-Wall", "-Werror", "-O3", "-std=c++2a", "-Isrc/test/cpp", "-Isrc/main/cpp", "-I", "/home/codespace/.xmake/packages/c/catch2/v3.7.0/fde8edd896c347479eccb45b381a478a/include", "-I", "/home/codespace/.xmake/packages/s/spdlog/v1.14.1/469f312ffeff47d9aa249e3ed8e400dc/include", "-I", "/home/codespace/.xmake/packages/d/date/2024.05.14/51ba21c0bca24f1aa0762d87ae6fe71a/include", "-I", "/home/codespace/.xmake/packages/z/zstd/v1.5.6/80e2da1ba1084d6a873eadb0acb6c455/include", "-DNDEBUG", "-o", "build/.objs/test/linux/x86_64/release/src/test/cpp/Main.cpp.o", "src/test/cpp/Main.cpp"],
+  "file": "src/test/cpp/Main.cpp"
+}]
